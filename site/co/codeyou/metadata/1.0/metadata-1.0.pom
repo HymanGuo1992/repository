@@ -1,0 +1,273 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.11.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>co.codeyou</groupId>
+    <artifactId>metadata</artifactId>
+    <version>1.0</version>
+    <name></name>
+    <description></description>
+    <url>https://github.com/HymanGuo1992/repository</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <hive.version>3.1.2</hive.version>
+        <lombok.version>1.18.10</lombok.version>
+
+        <spring.boot.version>2.3.6.RELEASE</spring.boot.version>
+        <mysql.version>8.0.19</mysql.version>
+        <swagger.version>2.9.2</swagger.version>
+        <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
+        <appace.commons.lang3>3.10</appace.commons.lang3>
+        <mybatis.spring.version>2.1.2</mybatis.spring.version>
+        <mybatis.plus.version>3.3.1</mybatis.plus.version>
+        <github.global.server>github</github.global.server>
+        <repository.directory>E:\Users\develop_jar\github\</repository.directory>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybatis.spring.version}</version>
+        </dependency>
+
+        <!-- mybatis plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis.plus.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>${spring.boot.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${appace.commons.lang3}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--
+        <dependency>
+             <groupId>org.springframework.data</groupId>
+             <artifactId>spring-data-redis</artifactId>
+             <version>2.3.6.RELEASE</version>
+         </dependency> -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring.boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <!-- 引入log4j2依赖 -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>${spring.boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.lettuce</groupId>
+                    <artifactId>lettuce-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-redis</artifactId>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; lettuce pool 缓存连接池&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.commons</groupId>-->
+<!--            <artifactId>commons-pool2</artifactId>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger-ui.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
+
+        <!-- 测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.boot.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.5.2</version>
+            <scope>test</scope>
+        </dependency>
+
+
+    </dependencies>
+    <build>
+        <plugins>
+            <!-- 由于没有直接继承spring-boot-starter-parent，此处修添加主类和设置repackage -->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>-->
+<!--                    <executable>true</executable>-->
+<!--                    <classifier>exec</classifier>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>build-info</goal>-->
+<!--                            <goal>repackage</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*.gitkeep</exclude>
+                        <exclude>**/*.yml</exclude>
+                        <exclude>**/*.txt</exclude>
+                        <exclude>/*.xml</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+
+            <!--github上传插件,用于修改后的发布,执行mvn clean deploy自动打包上传到github-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+                <configuration>
+                    <altDeploymentRepository>internal.repo::default::file://${repository.directory}/repository</altDeploymentRepository>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.12</version>
+                <configuration>
+                    <message>Maven artifacts for ${project.artifactId}-${project.version}</message>
+                    <noJekyll>true</noJekyll>
+                    <outputDirectory>${repository.directory}/repository</outputDirectory>
+                    <branch>refs/heads/main</branch>
+                    <merge>true</merge>
+                    <path>site</path>
+                    
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <repositoryName>repository</repositoryName>
+                    <repositoryOwner>HymanGuo1992</repositoryOwner>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
